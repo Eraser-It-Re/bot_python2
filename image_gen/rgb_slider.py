@@ -6,7 +6,6 @@ class RGB_slider_GUI:
         self.description = description # 「何の色を選択させているか（下地・柄の色1・柄の色2）」を受け取り、説明をウィンドウ内に表示する
     def main(self):
         def confirm_color():
-            print("Button clicked!")
             slider_window.quit()
 
         # ウィンドウの作成

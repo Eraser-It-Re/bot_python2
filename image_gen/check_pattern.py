@@ -3,8 +3,8 @@ from generator_abstract import Generator
 
 # 市松模様を生成するクラス
 class Generate_check_pattern(Generator):
-    def __init__(self):
-        super().__init__((255,255,255), (0,0,0), (0,0,0))
+    def __init__(self, base_color, pattern_color1):
+        super().__init__(base_color, pattern_color1, None)
         
     def process(self):
         
@@ -22,6 +22,3 @@ class Generate_check_pattern(Generator):
             self.draw.rectangle(draw_square(*pos), fill=(self.pattern_color1))
 
         self.image.show()
-
-ichimatsu = Generate_check_pattern()
-ichimatsu.process()

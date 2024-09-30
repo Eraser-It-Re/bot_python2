@@ -3,8 +3,8 @@ from generator_abstract import Generator
 
 # ダイヤ柄を生成するクラス
 class Generate_diamond_pattern(Generator):
-    def __init__(self):
-        super().__init__((255,255,255), (0,0,0), (255,0,0))
+    def __init__(self, base_color, pattern_color1, pattern_color2):
+        super().__init__(base_color, pattern_color1, pattern_color2)
         
     def process(self):
         
@@ -19,6 +19,3 @@ class Generate_diamond_pattern(Generator):
 
 
         self.image.show()
-
-ichimatsu = Generate_diamond_pattern()
-ichimatsu.process()

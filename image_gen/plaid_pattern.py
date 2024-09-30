@@ -3,8 +3,8 @@ from generator_abstract import Generator
 
 #チェック柄を生成するクラス
 class Generate_plaid_pattern(Generator):
-    def __init__(self):
-        super().__init__((255,255,255), (230,150,150), (0,0,0))
+    def __init__(self, base_color, pattern_color1):
+        super().__init__(base_color, pattern_color1, None)
 
     def process(self):
         
@@ -30,6 +30,3 @@ class Generate_plaid_pattern(Generator):
         # 作ったチェック柄を下地の画像に乗算モードで合成
         self.image = ImageChops.multiply(self.image, plaid)
         self.image.show()
-
-pattern = Generate_plaid_pattern()
-pattern.process()

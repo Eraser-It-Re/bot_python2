@@ -1,7 +1,7 @@
 from rgb_slider import RGB_slider_GUI
-# from check_pattern import Generate_check_pattern
-# from diamond_pattern import Generate_diamond_pattern
-# from plaid_pattern import Generate_plaid_pattern
+from check_pattern import Generate_check_pattern
+from diamond_pattern import Generate_diamond_pattern
+from plaid_pattern import Generate_plaid_pattern
 
 class Image_generator:
     def __init__(self):
@@ -21,9 +21,16 @@ class Image_generator:
         pattern_color1 = RGB_slider_GUI('柄の色').main()
 
         if choice == 1:
-            pass
+            gen_image = Generate_check_pattern(base_color, pattern_color1)
+            gen_image.process()
         elif choice == 2:
             pattern_color2 = RGB_slider_GUI('2つめの柄の色').main()
+            gen_image = Generate_diamond_pattern(base_color, pattern_color1, pattern_color2)
+            gen_image.process()
+        elif choice == 3:
+            gen_image = Generate_plaid_pattern(base_color, pattern_color1)
+            gen_image.process()
+            
 
 main = Image_generator()
 

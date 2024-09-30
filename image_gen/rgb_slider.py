@@ -7,14 +7,15 @@ class RGB_slider_GUI:
     def main(self):
         def confirm_color():
             print("Button clicked!")
-
             slider_window.quit()
 
         # ウィンドウの作成
         slider_window = tk.Tk()
         slider_window.title('色選択')
         slider_window.geometry('256x270')
-        slider_window.resizable(False, False)
+        slider_window.resizable(False, False) # ウィンドウサイズを固定
+
+
 
         def update_color(r, g, b):
             color = f'#{r:02x}{g:02x}{b:02x}'
@@ -40,7 +41,7 @@ class RGB_slider_GUI:
 
 
         #
-        description_text = tk.Label(slider_window, text = f'{self.description}の色を選択してください')
+        description_text = tk.Label(slider_window, text = f'{self.description}を選択してください')
         description_text.place(x = 0, y = 10)
 
         # スライダーの作成
@@ -61,7 +62,10 @@ class RGB_slider_GUI:
         confirm_button = tk.Button(slider_window, text='決定', command=confirm_color)
         confirm_button.place (x = 210, y = 234)
 
-        # ウィンドウの表示
+        # ウィンドウを最前面に表示する
+        slider_window.attributes('-topmost', True)
+
+        # ウィンドウの起動
         slider_window.mainloop()
 
         # 終了時、ユーザーに指定されたRGB値を返す

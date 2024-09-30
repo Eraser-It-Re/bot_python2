@@ -10,15 +10,20 @@ class Image_generator:
         while True:
             try:
                 choice = int(input('>> '))
-                if choice != 1 <= 3:
+                if not 1 <= choice <= 3:
                     raise ValueError
                 break
             except ValueError:
                 print('適切な整数を入力してください')
 
-        base_color = RGB_slider_GUI('下地')
-        print(base_color.main())
-        # if choice == 1
+        base_color = RGB_slider_GUI('下地の色').main()
+        print(base_color)
+        pattern_color1 = RGB_slider_GUI('柄の色').main()
+
+        if choice == 1:
+            pass
+        elif choice == 2:
+            pattern_color2 = RGB_slider_GUI('2つめの柄の色').main()
 
 main = Image_generator()
 

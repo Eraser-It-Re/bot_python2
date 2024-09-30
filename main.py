@@ -46,5 +46,5 @@ https://imagingsolution.net/program/python/tkinter/widget_layout_place/
 3.【Python応用】Tkinterでアプリ作成-Windowの固定、拡大、縮小の有効・無効化方法-
 https://www.hobby-happymylife.com/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/python-programming/tkinter_window-size/
 
-4
+4.testtest
 """

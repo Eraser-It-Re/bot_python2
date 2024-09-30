@@ -14,7 +14,7 @@ class Generate_diamond_pattern(Generator):
             for pos_x in range(32, 256, 64):
                 self.draw.regular_polygon((pos_x, pos_y, 32), 4, 45, fill=(self.pattern_color1))
 
-            for pos_x in range(pos_y - 128, 256, 128):
+            for pos_x in range(pos_y - 192, 256, 128):
                 self.draw.regular_polygon((pos_x, pos_y, 32), 4, 45, fill=(self.pattern_color2))
 
 

@@ -24,7 +24,7 @@ class Image_generator:
             gen_image = Generate_check_pattern(base_color, pattern_color1)
             gen_image.process()
         elif choice == 2:
-            pattern_color2 = RGB_slider_GUI('2つめの柄の色').main()
+            pattern_color2 = RGB_slider_GUI('2つ目の柄の色').main()
             gen_image = Generate_diamond_pattern(base_color, pattern_color1, pattern_color2)
             gen_image.process()
         elif choice == 3:

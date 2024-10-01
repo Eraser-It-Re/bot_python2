@@ -4,7 +4,7 @@ from generator_abstract import Generator
 # 市松模様を生成するクラス
 class Generate_check_pattern(Generator):
     def __init__(self, base_color, pattern_color1):
-        super().__init__(base_color, pattern_color1, None)
+        super().__init__(base_color, pattern_color1)
         
     def process(self):
         

@@ -1,6 +1,8 @@
+import os
 
 
-
+# main.pyのあるディレクトリをカレントディレクトリに
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 """
 参考:

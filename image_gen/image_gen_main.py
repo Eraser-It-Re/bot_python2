@@ -1,3 +1,4 @@
+import os
 from rgb_slider import RGB_slider_GUI
 from check_pattern import Generate_check_pattern
 from diamond_pattern import Generate_diamond_pattern
@@ -16,6 +17,8 @@ class Image_generator:
             except ValueError:
                 print('適切な整数を入力してください')
 
+        print('ウィンドウが開きます')
+        os.system('pause')
         # スライダーを呼び出し色を設定 決定を押したらスライダーのウィンドウを閉じる
         base_color_slider = RGB_slider_GUI('下地の色')
         base_color = base_color_slider.main()
@@ -32,7 +35,7 @@ class Image_generator:
 
             # ダイヤ柄を選んだ場合のみ柄の色2を選択させる
             pattern_color2_slider = RGB_slider_GUI('2つ目の柄の色')
-            pattern_color2 = pattern_color1_slider.main()
+            pattern_color2 = pattern_color2_slider.main()
             pattern_color2_slider.close_window()
 
             gen_image = Generate_diamond_pattern(base_color, pattern_color1, pattern_color2)

@@ -1,9 +1,25 @@
 import os
+from image_gen.image_gen_main import Image_generator
+from weather.weather_main import Weather_viewer
 
 
 # main.pyのあるディレクトリをカレントディレクトリに
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
+print('何をしますか？')
+print('【1】天気予報を見る | 【2】柄の画像を生成する')
+
+while True:
+    try:
+        choice = int(input('>> '))
+        if not 1 <= choice <= 2:
+            raise ValueError
+        break
+    except ValueError:
+        print('適切な整数を入力してください')
+
+
+ 
 """
 参考:
 
@@ -16,9 +32,15 @@ https://python.joho.info/scraping/get-weather-forecast-jma/
 2.気象庁JSONデータ
 https://qiita.com/michan06/items/48503631dd30275288f7
 
+3.気象庁JSON ファイルにある weatherCode 一覧
+https://www.t3a.jp/blog/web-develop/weather-code-list/
+※載っている対応表を修正してjsonとして使用
+
 3.python3でループを指定箇所から任意回数にしたい
 https://teratail.com/questions/30851
 
+4.Python エスケープシーケンスを無効にする方法
+https://aiacademy.jp/media/?p=3405
 
 画像生成関連
 
@@ -39,6 +61,7 @@ https://qiita.com/pashango2/items/3c99489ebccd468ab454
 https://python-no-memo.blogspot.com/2020/05/pillowimagedraw.html
 
 RGBスライダー関連
+
 1.【完全独学Python】TkinterのScale（スライダー）はこれだけ覚えて！
 https://yuya-blog.net/?p=342#toc3
 
@@ -48,5 +71,11 @@ https://imagingsolution.net/program/python/tkinter/widget_layout_place/
 3.【Python応用】Tkinterでアプリ作成-Windowの固定、拡大、縮小の有効・無効化方法-
 https://www.hobby-happymylife.com/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/python-programming/tkinter_window-size/
 
-4.
+4.【Python】tkinter：ウィンドウを閉じるボタンが押された時の動作を変更
+https://office54.net/python/tkinter/window-close-catch
+
+その他
+
+1. Pythonの相対パスimportを理解する
+https://qiita.com/u943425f/items/bd94a30b52c9296e942d
 """

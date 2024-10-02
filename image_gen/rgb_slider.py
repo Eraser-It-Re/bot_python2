@@ -57,9 +57,12 @@ class RGB_slider_GUI:
         canvas = tk.Canvas(self.slider_window, width=100, height=100, bg='#000000')
         canvas.place(x = 0, y = 164)
 
-        # 決定ボタン
+        # 色決定ボタン
         confirm_button = tk.Button(self.slider_window, text='決定', command=confirm_color)
         confirm_button.place (x = 210, y = 234)
+
+        # 閉じるボタンが押された場合でも色を決定したことにする
+        self.slider_window.protocol("WM_DELETE_WINDOW", confirm_color)
 
         # ウィンドウを最前面に表示する
         self.slider_window.attributes('-topmost', True)

@@ -2,7 +2,7 @@ from view_weather_report import View_weather_report
 
 
 
-class Weather_main:
+class Weather_viewer:
     def __init__(self):
         self.view_weather_report = View_weather_report()
 
@@ -14,3 +14,5 @@ class Weather_main:
             self.view_weather_report.weather_now()
         elif choice == 2:
             self.view_weather_report.weather_weekly()
+
+Weather_viewer().choice_mode()

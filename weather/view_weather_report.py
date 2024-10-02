@@ -1,4 +1,5 @@
 import requests
+import json
 from datetime import datetime
 from search_prefecture import Search_prefecture
 
@@ -11,8 +12,10 @@ class View_weather_report(Search_prefecture):
         self.weather_report_overview = requests.get(f'https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{self.prefecture_code}.json').json()
 
         # 概要を表示
+        print('--------------------------------------------------------------')
         print(self.weather_report_overview['text'].replace('\n\n', '\n'))
-        print()
+        print('--------------------------------------------------------------')
+
 
 
     # 現在の天気予報
@@ -33,9 +36,15 @@ class View_weather_report(Search_prefecture):
 
     # 今後の気温予想
     def weather_weekly(self):
-            # 一日毎に予報を表示
-            # （なぜかは分からないが、データ取得当日の予報データが入ってないことがあるので、当日の予報は飛ばす）
-            for i, date in enumerate(self.weather_report[1]['timeSeries'][0]['timeDefines'][1:6], 1):
-                 print('----------------------------------------------------')
-                 print(datetime.fromisoformat(date).strftime('%Y/%m/%d'))
-                 print(f'予想最低気温: {self.weather_report[1]['timeSeries'][1]['areas'][0]['tempsMin'][i]}度 | 予想最高気温: {self.weather_report[1]['timeSeries'][1]['areas'][0]['tempsMax'][i]}度')
+            
+        # WeatherCodeと天気との対応表を読み込む
+        with open(r'weather\weather_code_list.json', 'r', encoding='UTF-8') as f:
+            weather_code_list_dict = json.load(f)
+            
+        # 一日毎に予報を表示 当日分は飛ばす
+        for i, date in enumerate(self.weather_report[1]['timeSeries'][0]['timeDefines'][1:6], 1):
+            print('----------------------------------------------------')
+            print(datetime.fromisoformat(date).strftime('%Y/%m/%d'))
+            print(f'予想最低気温: {self.weather_report[1]['timeSeries'][1]['areas'][0]['tempsMin'][i]}度', end = ' | ')
+            print(f'予想最高気温: {self.weather_report[1]['timeSeries'][1]['areas'][0]['tempsMax'][i]}度', end = ' | ')
+            print(f'天気: {weather_code_list_dict[self.weather_report[1]['timeSeries'][0]['areas'][0]['weatherCodes'][i]][3]} ')

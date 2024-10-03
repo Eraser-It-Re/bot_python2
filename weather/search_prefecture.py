@@ -15,9 +15,10 @@ class Search_prefecture:
             # 検索結果が複数存在した場合に、後で一つに絞るために都道府県名とエリアコードを保存
             hit_prefecture_name = [] 
             hit_prefecture_code = [] 
-            search_keyword = input('都道府県/地方を検索します。検索キーワードを入力してください >>  ') # 検索キーワード設定
+            
+            search_keyword = input('都道府県/地方を検索します。検索キーワードを入力してください >> ') 
 
-            # 検索キーワードで都道府県名一覧を検索 部分一致した都道府県はすべて記録
+            # 検索キーワードで都道府県名一覧を検索 部分一致した都道府県はすべて記録する
             for code, info in self.prefectures_list.items():
                 if search_keyword in info['name']:
                     hit_prefecture_code.append(code)
@@ -64,7 +65,7 @@ class Search_prefecture:
             
             # 検索結果が一つだけだった場合、その都道府県のエリアコードを代入
             else:
-                print(f'{hit_prefecture_name[0]}の天気予報を表示します')
                 choice_prefecture_code = hit_prefecture_code[0]
-
+                
+            print(f'{self.prefectures_list[choice_prefecture_code]['name']}の天気予報を表示します')
             return choice_prefecture_code

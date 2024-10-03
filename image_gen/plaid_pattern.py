@@ -1,5 +1,5 @@
 from PIL import Image, ImageDraw, ImageChops
-from generator_abstract import Generator
+from image_gen.generator_abstract import Generator
 
 #チェック柄を生成するクラス
 class Generate_plaid_pattern(Generator):
@@ -29,4 +29,5 @@ class Generate_plaid_pattern(Generator):
 
         # 作ったチェック柄を下地の画像に乗算モードで合成
         self.image = ImageChops.multiply(self.image, plaid)
-        self.image.show()
+        
+        return self.image

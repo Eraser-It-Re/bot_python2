@@ -1,5 +1,5 @@
 from PIL import Image, ImageDraw
-from generator_abstract import Generator
+from image_gen.generator_abstract import Generator
 
 # 市松模様を生成するクラス
 class Generate_check_pattern(Generator):
@@ -17,8 +17,8 @@ class Generate_check_pattern(Generator):
         # 正方形の始点一覧
         positions = [(64, 0), (192, 0), (0, 64), (128, 64), (64,128), (192, 128), (0, 192), (128, 192)]
 
-        # positionsでfor文を回し、描画
+        # positionsでfor文を回し正方形を描画
         for pos in positions:
             self.draw.rectangle(draw_square(*pos), fill=(self.pattern_color1))
-
-        self.image.show()
+            
+        return self.image

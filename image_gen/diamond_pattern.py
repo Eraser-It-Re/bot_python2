@@ -1,5 +1,5 @@
 from PIL import Image, ImageDraw
-from generator_abstract import Generator
+from image_gen.generator_abstract import Generator
 
 # ダイヤ柄を生成するクラス
 class Generate_diamond_pattern(Generator):
@@ -18,5 +18,5 @@ class Generate_diamond_pattern(Generator):
             for pos_x in range(pos_y - 192, 256, 128):
                 self.draw.regular_polygon((pos_x, pos_y, 32), 4, 45, fill=(self.pattern_color2))
 
-
-        self.image.show()
+        return self.image
+        # self.image.show()

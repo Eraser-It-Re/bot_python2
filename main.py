@@ -19,7 +19,11 @@ while True:
         print('適切な整数を入力してください')
 
 
- 
+if choice == 1:
+    Weather_viewer().choice_mode()
+elif choice == 2:
+    Image_generator()
+
 """
 参考:
 

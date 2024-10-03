@@ -1,7 +1,7 @@
 import requests
 import json
 from datetime import datetime
-from search_prefecture import Search_prefecture
+from weather.search_prefecture import Search_prefecture
 
 class View_weather_report(Search_prefecture):
     def __init__(self):

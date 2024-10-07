@@ -6,7 +6,6 @@ class Search_prefecture:
         self.prefectures_list = requests.get('https://www.jma.go.jp/bosai/common/const/area.json').json()['offices']
         # 自身のsearch関数で、ユーザーが指定した都道府県からエリアコードを取得
         self.prefecture_code = self.search()
-        print(self.prefecture_code)
 
     # 都道府県を検索して対応するエリアコードを返す関数
     def search(self):
@@ -91,7 +90,7 @@ class Search_prefecture:
                     except ValueError:
                         print('適切な整数を入力してください')
 
-            # 見つからなかった場合やり直し
+            # 検索にヒットしなかった場合やり直し
             elif len(hit_prefecture_code) == 0:
                 print('検索結果が見つかりませんでした。もう一度入力してください')
                 continue

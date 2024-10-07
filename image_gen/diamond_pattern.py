@@ -10,11 +10,12 @@ class Generate_diamond_pattern(Generator):
         
     def process(self):
         
-        # ダイヤ柄を2つの色で交互に描画
+        # ダイヤ柄を2つの色で描画
         for pos_y in range(32, 256, 64):
             for pos_x in range(32, 256, 64):
                 self.draw.regular_polygon((pos_x, pos_y, 32), 4, 45, fill=(self.pattern_color1))
 
+            # 交互になるように柄の色2を描画
             for pos_x in range(pos_y - 192, 256, 128):
                 self.draw.regular_polygon((pos_x, pos_y, 32), 4, 45, fill=(self.pattern_color2))
 

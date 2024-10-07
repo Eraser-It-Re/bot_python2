@@ -30,7 +30,7 @@ class View_weather_report(Search_prefecture):
         # 地方ごとに天気と風向きを表示
         for area in self.weather_report[0]['timeSeries'][0]['areas']:
             print('-----------------------------------------------------------------------------------------------------')
-            print(f'{area['area']['name']}      天気 : {area['weathers'][0].replace('　', ' '):　<35}        風 : {area['winds'][0].replace('　', ' ')}')
+            print(f'{area['area']['name']}      天気 : {area['weathers'][0].replace('　', ' '): <50}        風 : {area['winds'][0].replace('　', ' ')}')
 
 
 

@@ -1,2 +1,2 @@
 saved_image/
-*.pyc
+*/__pycache__

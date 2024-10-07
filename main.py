@@ -1,28 +1,47 @@
+import datetime
 import os
-from image_gen.image_gen_main import Image_generator
-from weather.weather_main import Weather_viewer
+from image_gen.image_gen_main import Image_generator # 画像を生成するプログラム
+from weather.weather_main import Weather_viewer # 天気予報を表示するプログラム
+from choice_module import choice_num # 選択の処理を簡略化するメソッド
 
 
 # main.pyのあるディレクトリをカレントディレクトリに
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-print('何をしますか？')
-print('【1】天気予報を見る | 【2】柄の画像を生成する')
+# 現在時刻(時)を取得
+dt_now = datetime.datetime.now()
 
+# 取得した時間帯に応じた挨拶
+if 4 <= dt_now.hour <= 10:
+    print('おはようございます！')
+elif 11 <= dt_now.hour <= 17:
+    print('こんにちは！')
+elif 18 <= dt_now.hour <= 24 or 0 <= dt_now.hour <= 3:
+    print('こんばんは！')
+            
+            
 while True:
-    try:
-        choice = int(input('>> '))
-        if not 1 <= choice <= 2:
-            raise ValueError
+    print('何をしますか？')
+    print('【1】天気予報を見る | 【2】柄を生成する | 【9】終了')
+    choice = choice_num(True, 2)
+    # while True:
+    #     try:
+    #         choice = int(input('>> '))
+    #         if not 1 <= choice <= 2 and choice != 9:
+    #             raise ValueError
+    #         break
+    #     except ValueError:
+    #         print('適切な整数を入力してください')
+
+
+    if choice == 1:
+        Weather_viewer().choice_mode()
+    elif choice == 2:
+        Image_generator()
+    elif choice == 9:
+        print('プログラムを終了します')
         break
-    except ValueError:
-        print('適切な整数を入力してください')
-
-
-if choice == 1:
-    Weather_viewer().choice_mode()
-elif choice == 2:
-    Image_generator()
+        
 
 """
 参考:

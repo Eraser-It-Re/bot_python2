@@ -1,8 +1,9 @@
 import os
-from image_gen.rgb_slider import RGB_slider_GUI
-from image_gen.check_pattern import Generate_check_pattern
-from image_gen.diamond_pattern import Generate_diamond_pattern
-from image_gen.plaid_pattern import Generate_plaid_pattern
+from image_gen.rgb_slider import RGB_slider_GUI # RGBスライダー
+from image_gen.check_pattern import Generate_check_pattern # 市松模様を生成
+from image_gen.diamond_pattern import Generate_diamond_pattern # ダイヤモンド柄を生成
+from image_gen.plaid_pattern import Generate_plaid_pattern # チェック柄を生成
+from ..choice_module import choice_num # 選択の処理を簡略化するメソッド
 
 class Image_generator:
     def __init__(self):
@@ -71,7 +72,7 @@ class Image_generator:
                         break
                     # 99まで埋まっていた場合、保存は行わない
                     elif os.path.isfile(rf'saved_image/{pattern_type}_99.png'):
-                        print('これ以上画像を保存できません')
+                        print('保存上限に達していたため、画像を保存できませんでした')
                         break
             elif is_saved == 'n':
                 pass

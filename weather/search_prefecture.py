@@ -26,14 +26,20 @@ class Search_prefecture:
 
             # 検索結果が2つ以上ある場合、候補から選択させる
             if len(hit_prefecture_code) > 2:
-                print('検索結果が複数存在します。どの天気予報を表示しますか？')
+                print('検索結果が複数存在します。どの地域の天気予報を表示しますか？')
 
                 #候補一覧の表示
                 for i, prefecture in enumerate(hit_prefecture_name, 1):
                     print(f'【{i}】{prefecture}', end=' | ')
 
-                print()
-                choice = int(input('>> ')) - 1
+                while True:
+                    try:
+                        choice = int(input('>> ')) - 1
+                        if not 1 <= choice <= len(hit_prefecture_name) - 1:
+                            raise ValueError
+                        break
+                    except ValueError:
+                        print('適切な整数を入力してください')
 
                 # 選択した都道府県のエリアコードをchoice_prefecture_codeに代入 この変数を最後に返す
                 choice_prefecture_code = hit_prefecture_code[choice]
@@ -44,19 +50,46 @@ class Search_prefecture:
                 print('北海道は地方別で表示されます。どちらを表示しますか？')
                 print('【1】宗谷地方 | 【2】上川・留萌地方 | 【3】網走・北見・紋別地方 | 【4】十勝地方')
                 print('【5】釧路・根室地方 | 【6】胆振・日高地方 | 【7】石狩・空知・後志地方 | 【8】渡島・檜山地方')
-                choice_prefecture_code = prefecture_code_list[int(input('>> ')) - 1]
+                
+                while True:
+                    try:
+                        choice_num = int(input('>> ')) - 1
+                        if not 1 <= choice_num <= 8:
+                            raise ValueError
+                        choice_prefecture_code = prefecture_code_list[choice_num]
+                        break
+                    except ValueError:
+                        print('適切な整数を入力してください')
 
             elif search_keyword in '鹿児島県':
                 print('奄美地方は鹿児島県本土とは別に表示されます。どちらを表示しますか？')
                 prefecture_code_list = ('460100', '460040')
-                print('【1】鹿児島県本土 | 【2】奄美地方')
-                choice_prefecture_code = prefecture_code_list[int(input('>> ')) - 1]
+                print('【1】鹿児島県本土 | 【2】奄美地方')                
+                
+                while True:
+                    try:
+                        choice_num = int(input('>> ')) - 1
+                        if not 1 <= choice_num <= 2:
+                            raise ValueError
+                        choice_prefecture_code = prefecture_code_list[choice_num]
+                        break
+                    except ValueError:
+                        print('適切な整数を入力してください')
 
             elif search_keyword in '沖縄県':
                 print('沖縄県は地方別で表示されます。どちらを表示しますか？')
                 prefecture_code_list = ('471000', '472000', '473000', '474000')
                 print('【1】沖縄本島地方 | 【2】大東島地方 | 【3】宮古島地方 | 【4】八重山地方')
-                choice_prefecture_code = prefecture_code_list[int(input('>> ')) - 1]
+                
+                while True:
+                    try:
+                        choice_num = int(input('>> ')) - 1
+                        if not 1 <= choice_num <= 4:
+                            raise ValueError
+                        choice_prefecture_code = prefecture_code_list[choice_num]
+                        break
+                    except ValueError:
+                        print('適切な整数を入力してください')
 
             # 見つからなかった場合やり直し
             elif len(hit_prefecture_code) == 0:

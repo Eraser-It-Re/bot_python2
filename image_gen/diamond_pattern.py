@@ -1,5 +1,5 @@
 from PIL import Image, ImageDraw
-from image_gen.generator_abstract import Generator
+from image_gen.generator_abstract import Generator # 抽象クラスを継承
 
 # ダイヤ柄を生成するクラス
 class Generate_diamond_pattern(Generator):

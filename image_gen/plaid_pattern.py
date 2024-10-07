@@ -3,8 +3,6 @@ from image_gen.generator_abstract import Generator
 
 #チェック柄を生成するクラス
 class Generate_plaid_pattern(Generator):
-    def __init__(self, base_color, pattern_color1):
-        super().__init__(base_color, pattern_color1)
 
     def process(self):
         

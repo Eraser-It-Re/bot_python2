@@ -1,8 +1,7 @@
 import datetime
 import os
-from image_gen.image_gen_main import Image_generator # 画像を生成するプログラム
-from weather.weather_main import Weather_viewer # 天気予報を表示するプログラム
-from choice_module import choice_num # 選択の処理を簡略化するメソッド
+from image_gen.image_gen_main import Image_generator
+from weather.weather_main import Weather_viewer
 
 
 # main.pyのあるディレクトリをカレントディレクトリに
@@ -23,15 +22,15 @@ elif 18 <= dt_now.hour <= 24 or 0 <= dt_now.hour <= 3:
 while True:
     print('何をしますか？')
     print('【1】天気予報を見る | 【2】柄を生成する | 【9】終了')
-    choice = choice_num(True, 2)
-    # while True:
-    #     try:
-    #         choice = int(input('>> '))
-    #         if not 1 <= choice <= 2 and choice != 9:
-    #             raise ValueError
-    #         break
-    #     except ValueError:
-    #         print('適切な整数を入力してください')
+
+    while True:
+        try:
+            choice = int(input('>> '))
+            if not 1 <= choice <= 2 and choice != 9:
+                raise ValueError
+            break
+        except ValueError:
+            print('適切な整数を入力してください')
 
 
     if choice == 1:

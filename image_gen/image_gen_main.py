@@ -1,9 +1,8 @@
 import os
 from image_gen.rgb_slider import RGB_slider_GUI # RGBスライダー
-from image_gen.check_pattern import Generate_check_pattern # 市松模様を生成
-from image_gen.diamond_pattern import Generate_diamond_pattern # ダイヤモンド柄を生成
-from image_gen.plaid_pattern import Generate_plaid_pattern # チェック柄を生成
-from ..choice_module import choice_num # 選択の処理を簡略化するメソッド
+from image_gen.check_pattern import Generate_check_pattern # 市松模様の生成
+from image_gen.diamond_pattern import Generate_diamond_pattern # ダイヤモンド柄の生成
+from image_gen.plaid_pattern import Generate_plaid_pattern # チェック柄の生成
 
 class Image_generator:
     def __init__(self):

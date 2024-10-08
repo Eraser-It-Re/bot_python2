@@ -1,9 +1,9 @@
 import tkinter as tk
 
-# スライダーでRGB値を指定して返すGUI
+# スライダーでRGB値を指定して返す
 class RGB_slider_GUI:
     def __init__(self, description):
-        self.description = description # 「何の色を選択させているか（下地・柄の色1・柄の色2）」を受け取り、説明をウィンドウ内に表示する
+        self.description = description # 「何の色を選択させているか（下地・柄の色1・柄の色2）」を引数として受け取り、説明としてウィンドウ内に表示する
     def main(self):
         def confirm_color():
             self.slider_window.quit()
@@ -77,7 +77,3 @@ class RGB_slider_GUI:
     # ウィンドウを閉じる
     def close_window(self):
         self.slider_window.destroy()
-
-
-# ui = RGB_slider_GUI
-# print(ui.main())

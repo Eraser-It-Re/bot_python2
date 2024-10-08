@@ -1,6 +1,7 @@
 from abc import *
 from PIL import Image, ImageDraw
 
+# 画像生成プログラムの骨組み
 class Generator:
     def __init__(self, base_color, pattern_color1):
         # 下地の色

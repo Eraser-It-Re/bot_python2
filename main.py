@@ -46,7 +46,7 @@ while True:
 参考:
 
 
-天気予報関連
+・天気予報関連
 
 1.【Python】気象庁のAPIから天気予報を取得する方法
 https://python.joho.info/scraping/get-weather-forecast-jma/
@@ -64,7 +64,7 @@ https://teratail.com/questions/30851
 4.Python エスケープシーケンスを無効にする方法
 https://aiacademy.jp/media/?p=3405
 
-画像生成関連
+・画像生成関連
 
 1.Pythonの画像処理ライブラリPillow(PIL)の使い方
 https://note.nkmk.me/python-pillow-basic/
@@ -82,7 +82,7 @@ https://qiita.com/pashango2/items/3c99489ebccd468ab454
 5.【Pillow】ImageDrawモジュールによる直線、四角、円、多角形描画
 https://python-no-memo.blogspot.com/2020/05/pillowimagedraw.html
 
-RGBスライダー関連
+・RGBスライダー関連
 
 1.【完全独学Python】TkinterのScale（スライダー）はこれだけ覚えて！
 https://yuya-blog.net/?p=342#toc3
@@ -96,7 +96,7 @@ https://www.hobby-happymylife.com/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%
 4.【Python】tkinter：ウィンドウを閉じるボタンが押された時の動作を変更
 https://office54.net/python/tkinter/window-close-catch
 
-その他
+・その他
 
 1. Pythonの相対パスimportを理解する
 https://qiita.com/u943425f/items/bd94a30b52c9296e942d

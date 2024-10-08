@@ -15,7 +15,7 @@ class RGB_slider_GUI:
         self.slider_window.resizable(False, False) # ウィンドウサイズを固定
 
 
-
+        #キャンバスに現在の色を表示
         def update_color(r, g, b):
             color = f'#{r:02x}{g:02x}{b:02x}'
             canvas.config(bg=color)
@@ -39,7 +39,7 @@ class RGB_slider_GUI:
             update_color(r, g, b)
 
 
-        #
+        #何の色を指定するかの説明
         description_text = tk.Label(self.slider_window, text = f'{self.description}を選択してください')
         description_text.place(x = 0, y = 10)
 
@@ -51,13 +51,13 @@ class RGB_slider_GUI:
         scale_b = tk.Scale(self.slider_window, from_ = 255, to_ = 0, label='B', command=on_scale_b)
         scale_b.place(x = 170, y = 34)
 
-        # キャンバスの作成
+        # 色見本キャンバスの作成
         label = tk.Label(self.slider_window, text = '色見本')
         label.place(x = 0, y = 144)
         canvas = tk.Canvas(self.slider_window, width=100, height=100, bg='#000000')
         canvas.place(x = 0, y = 164)
 
-        # 色決定ボタン
+        # 決定ボタン
         confirm_button = tk.Button(self.slider_window, text='決定', command=confirm_color)
         confirm_button.place (x = 210, y = 234)
 

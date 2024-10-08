@@ -1,4 +1,5 @@
 import os
+import time
 from image_gen.rgb_slider import RGB_slider_GUI # RGBスライダー
 from image_gen.check_pattern import Generate_check_pattern # 市松模様の生成
 from image_gen.diamond_pattern import Generate_diamond_pattern # ダイヤモンド柄の生成
@@ -24,31 +25,29 @@ class Image_generator:
         print('ウィンドウが開きます')
         os.system('pause')
         
-        # スライダーを呼び出し下地と柄の色をそれぞれ設定 決定されたらスライダーのウィンドウを閉じる
-        base_color_slider = RGB_slider_GUI('下地の色')
-        base_color = base_color_slider.main()
-        base_color_slider.close_window()
+        # 自身のchoice_colorメソッドを呼び出し決定された色を代入
+        base_color = self.choice_color('下地の色')
 
-        pattern_color1_slider = RGB_slider_GUI('柄の色')
-        pattern_color1 = pattern_color1_slider.main()
-        pattern_color1_slider.close_window()
-
+        
         # 選択によってgen_imageに代入するクラス（柄の種類）を変える
         if choice == 1:
+            
+            pattern_color1 = self.choice_color('柄の色')
             gen_image = Generate_check_pattern(base_color, pattern_color1)
             pattern_type = 'check'
             
         elif choice == 2:   
-
+            
+            pattern_color1 = self.choice_color('柄の色')
+            
             # ダイヤ柄を選んだ場合のみ柄の色2を選択させる
-            pattern_color2_slider = RGB_slider_GUI('2つ目の柄の色')
-            pattern_color2 = pattern_color2_slider.main()
-            pattern_color2_slider.close_window()
+            pattern_color2 = self.choice_color('２つ目の柄の色')
 
             gen_image = Generate_diamond_pattern(base_color, pattern_color1, pattern_color2)
             pattern_type = 'diamond'
             
         elif choice == 3:
+            pattern_color1 = self.choice_color('柄の色（薄めの色）')
             
             gen_image = Generate_plaid_pattern(base_color, pattern_color1)
             pattern_type = 'plaid'
@@ -57,8 +56,9 @@ class Image_generator:
         image = gen_image.process()
         
         print('生成した画像を表示します')
-        os.system('pause')
         image.show()
+        
+        time.sleep(1)
 
         # 画像の保存
         while True:
@@ -69,7 +69,7 @@ class Image_generator:
                         image.save(rf'saved_image/{pattern_type}_{str(num).zfill(2)}.png')
                         print('画像の保存が完了しました')
                         break
-                    # 99まで埋まっていた場合、保存は行わない
+                    # 同じ種類の柄が99まで埋まっていた場合、保存は行わない
                     elif os.path.isfile(rf'saved_image/{pattern_type}_99.png'):
                         print('保存上限に達していたため、画像を保存できませんでした')
                         break
@@ -79,5 +79,12 @@ class Image_generator:
                 print('y/nで指定してください')
                 continue
             break    
+        
+    # スライダーを呼び出し決定された色を返すメソッド 決定されたらスライダーのウィンドウを閉じる
+    def choice_color(self, description):
+        color_slider = RGB_slider_GUI(description)
+        color = color_slider.main()
+        color_slider.close_window()
+        return color
 
 

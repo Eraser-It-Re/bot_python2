@@ -58,10 +58,13 @@ https://qiita.com/michan06/items/48503631dd30275288f7
 https://www.t3a.jp/blog/web-develop/weather-code-list/
 ※載っている対応表を修正してjsonとして使用
 
-3.python3でループを指定箇所から任意回数にしたい
+4.気象庁のAPIと予報区のコード
+https://anko.education/webapi/jma
+
+5.python3でループを指定箇所から任意回数にしたい
 https://teratail.com/questions/30851
 
-4.Python エスケープシーケンスを無効にする方法
+6.Python エスケープシーケンスを無効にする方法
 https://aiacademy.jp/media/?p=3405
 
 ・画像生成関連

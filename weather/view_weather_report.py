@@ -15,6 +15,8 @@ class View_weather_report(Search_prefecture):
         print('--------------------------------------------------------------')
         print(self.weather_report_overview['text'].replace('\n\n', '\n'))
         print('--------------------------------------------------------------')
+        
+        print()
 
 
 
@@ -31,6 +33,7 @@ class View_weather_report(Search_prefecture):
         for area in self.weather_report[0]['timeSeries'][0]['areas']:
             print('-----------------------------------------------------------------------------------------------------')
             print(f'{area['area']['name']}      天気 : {area['weathers'][0].replace('　', ' '): <50}        風 : {area['winds'][0].replace('　', ' ')}')
+        print('-----------------------------------------------------------------------------------------------------')
 
 
 
@@ -48,3 +51,4 @@ class View_weather_report(Search_prefecture):
             print(f'予想最低気温: {self.weather_report[1]['timeSeries'][1]['areas'][0]['tempsMin'][i]}度', end = ' | ')
             print(f'予想最高気温: {self.weather_report[1]['timeSeries'][1]['areas'][0]['tempsMax'][i]}度', end = ' | ')
             print(f'天気: {weather_code_list_dict[self.weather_report[1]['timeSeries'][0]['areas'][0]['weatherCodes'][i]][3]} ')
+        print('-----------------------------------------------------------------------------------------------------')

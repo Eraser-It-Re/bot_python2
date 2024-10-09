@@ -43,32 +43,17 @@ class Search_prefecture:
                 # 選択した都道府県のエリアコードをchoice_prefecture_codeに代入 この変数を最後に返す
                 choice_prefecture_code = hit_prefecture_code[choice]
 
-            # 北海道・鹿児島・沖縄が選択された場合、エリアコードが複数あるので選択させる
+            # 北海道・沖縄が選択された場合、エリアコードが複数あるので選択させる
             elif search_keyword in '北海道':
-                prefecture_code_list = ('011000', '012000', '013000', '014030', '014100', '015000', '016000', '017000')
+                prefecture_code_list = ('011000', '012000', '013000', '014100', '015000', '016000', '017000')
                 print('北海道は地方別で表示されます。どちらを表示しますか？')
-                print('【1】宗谷地方 | 【2】上川・留萌地方 | 【3】網走・北見・紋別地方 | 【4】十勝地方')
-                print('【5】釧路・根室地方 | 【6】胆振・日高地方 | 【7】石狩・空知・後志地方 | 【8】渡島・檜山地方')
+                print('【1】宗谷地方 | 【2】上川・留萌地方 | 【3】網走・北見・紋別地方 | 【4】釧路・根室・十勝地方')
+                print('【5】胆振・日高地方 | 【6】石狩・空知・後志地方 | 【7】渡島・檜山地方')
                 
                 while True:
                     try:
                         choice_num = int(input('>> ')) - 1
-                        if not 0 <= choice_num <= 8:
-                            raise ValueError
-                        choice_prefecture_code = prefecture_code_list[choice_num]
-                        break
-                    except ValueError:
-                        print('適切な整数を入力してください')
-
-            elif search_keyword in '鹿児島県':
-                print('奄美地方は鹿児島県本土とは別に表示されます。どちらを表示しますか？')
-                prefecture_code_list = ('460100', '460040')
-                print('【1】鹿児島県本土 | 【2】奄美地方')                
-                
-                while True:
-                    try:
-                        choice_num = int(input('>> ')) - 1
-                        if not 0 <= choice_num <= 2:
+                        if not 0 <= choice_num <= 6:
                             raise ValueError
                         choice_prefecture_code = prefecture_code_list[choice_num]
                         break
@@ -83,7 +68,7 @@ class Search_prefecture:
                 while True:
                     try:
                         choice_num = int(input('>> ')) - 1
-                        if not 0 <= choice_num <= 4:
+                        if not 0 <= choice_num <= 3:
                             raise ValueError
                         choice_prefecture_code = prefecture_code_list[choice_num]
                         break
@@ -98,6 +83,23 @@ class Search_prefecture:
             # 検索結果が一つだけだった場合、その都道府県のエリアコードを代入
             else:
                 choice_prefecture_code = hit_prefecture_code[0]
+            
+            #表示用の都道府県名を設定する変数
+            displayed_choice_prefecture_name = self.prefectures_list[choice_prefecture_code]['name']
+            
+            # 鹿児島県は奄美地方のコードが分かれているが、実際には鹿児島県のコードで奄美地方の情報も表示され、奄美地方のコードは指定しても何も取得できない
+            # そのため奄美地方が選択された場合には鹿児島県のコードに置換する
+            if choice_prefecture_code == '460040':
+                choice_prefecture_code = '460100'
+            # 同様の理由で北海道の十勝地方を釧路・根室地方のコードに置換
+            elif choice_prefecture_code == '014030':
+                choice_prefecture_code = '014100'
                 
-            print(f'{self.prefectures_list[choice_prefecture_code]['name']}の天気予報を表示します')
+            # 表記も変更
+            if choice_prefecture_code  == '460100':
+                displayed_choice_prefecture_name = '鹿児島県'
+            elif choice_prefecture_code == '014100':
+                displayed_choice_prefecture_name = '釧路・根室・十勝地方'
+                
+            print(f'{displayed_choice_prefecture_name}の天気予報を表示します')
             return choice_prefecture_code

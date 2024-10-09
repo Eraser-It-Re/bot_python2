@@ -34,7 +34,7 @@ class Search_prefecture:
                 while True:
                     try:
                         choice = int(input('>> ')) - 1
-                        if not 1 <= choice <= len(hit_prefecture_name) - 1:
+                        if not 0 <= choice <= len(hit_prefecture_name) - 1:
                             raise ValueError
                         break
                     except ValueError:
@@ -53,7 +53,7 @@ class Search_prefecture:
                 while True:
                     try:
                         choice_num = int(input('>> ')) - 1
-                        if not 1 <= choice_num <= 8:
+                        if not 0 <= choice_num <= 8:
                             raise ValueError
                         choice_prefecture_code = prefecture_code_list[choice_num]
                         break
@@ -68,7 +68,7 @@ class Search_prefecture:
                 while True:
                     try:
                         choice_num = int(input('>> ')) - 1
-                        if not 1 <= choice_num <= 2:
+                        if not 0 <= choice_num <= 2:
                             raise ValueError
                         choice_prefecture_code = prefecture_code_list[choice_num]
                         break
@@ -83,7 +83,7 @@ class Search_prefecture:
                 while True:
                     try:
                         choice_num = int(input('>> ')) - 1
-                        if not 1 <= choice_num <= 4:
+                        if not 0 <= choice_num <= 4:
                             raise ValueError
                         choice_prefecture_code = prefecture_code_list[choice_num]
                         break
